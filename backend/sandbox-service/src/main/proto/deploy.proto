@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package sandbox;
+
+option java_multiple_files = true;
+
+option java_package = "com.example.submissionservice.grpc";
+
+option java_outer_classname = "DeployProto";
+
+service SandboxService {
+
+  rpc deploy(DeployRequest)
+      returns (DeployResponse);
+
+}
+
+message DeployRequest {
+
+  string systemId = 1;
+
+  string language = 2;
+
+  string filePath = 3;
+
+}
+
+message DeployResponse {
+
+  bool success = 1;
+
+  string status = 2;
+
+  string containerId = 3;
+
+  string endpoint = 4;
+
+  string message = 5;
+
+}

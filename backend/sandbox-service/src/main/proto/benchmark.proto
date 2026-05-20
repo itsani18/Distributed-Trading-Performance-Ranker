@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package benchmark;
+
+option java_multiple_files = true;
+option java_package = "com.example.sandboxservice.grpc";
+option java_outer_classname = "BenchmarkProto";
+
+service LoadGeneratorService {
+
+  rpc startBenchmark(StartBenchmarkRequest)
+      returns (BenchmarkResponse);
+
+}
+
+message StartBenchmarkRequest {
+
+  string systemId = 1;
+
+  string endpoint = 2;
+
+  string containerId = 3;
+
+}
+
+message BenchmarkResponse {
+
+  bool success = 1;
+
+  string message = 2;
+
+}
